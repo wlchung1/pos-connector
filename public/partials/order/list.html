@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Orders</h1>
+  <p>
+    <a class="btn btn-primary" ng-click="pollOrders()" ng-disabled="pollOrdersDisabled">Poll Orders</a>
+    <a class="btn btn-primary" ng-click="refresh()" ng-disabled="refreshDisabled">Refresh</a>
+  </p>
+  <table class="table table-striped">
+    <tr>
+      <th>Source</th>
+      <th>Order Number</th>
+      <th>Last Updated Date and Time</th>
+      <th>Quickbooks Sync Status</th>
+      <th></th>
+    </tr>
+    <tr ng-repeat="order in orders">
+      <td>{{order.source}}</td>
+      <td>{{order.order_number}}</td>
+      <td>{{order.last_updated_datetime}}</td>
+      <td>{{order.quickbooks_sync_status}}</td>
+      <td><a class="btn btn-primary" href="/orders/{{order.id}}/view">View</a></td>
+    </tr>
+  </table>
+</div>
