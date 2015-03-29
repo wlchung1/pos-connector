@@ -1,8 +1,3 @@
-# Environment
-I run and test it on Ubuntu 14.04.1.
-
-I have tried to run it on Windows and got SSL_connect error while connecting to Vend.  It should not be difficult to fix but I didn't bother to fix it.
-
 # Setup
 Run "bundle install"
 
