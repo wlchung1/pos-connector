@@ -1,0 +1,48 @@
+<div class="form-group" ng-class="{ 'has-error': quickbooksAccount.token.$invalid && quickbooksAccount.token.$dirty }">
+  <label for="token" class="col-sm-4 control-label">Token</label>
+  <div class="col-sm-8">
+    <input type="text" ng-model="quickbooksAccount.token" class="form-control" id="token" placeholder="Token" required />
+  </div>
+</div>
+<div class="form-group" ng-class="{ 'has-error': quickbooksAccount.secret.$invalid && quickbooksAccount.secret.$dirty }">
+  <label for="secret" class="col-sm-4 control-label">Secret</label>
+  <div class="col-sm-8">
+    <input type="text" ng-model="quickbooksAccount.secret" class="form-control" id="secret" placeholder="Secret" required />
+  </div>
+</div>
+<div class="form-group" ng-class="{ 'has-error': quickbooksAccount.realm_id.$invalid && quickbooksAccount.realm_id.$dirty }">
+  <label for="realm_id" class="col-sm-4 control-label">Realm ID</label>
+  <div class="col-sm-8">
+    <input type="text" ng-model="quickbooksAccount.realm_id" class="form-control" id="realm_id" placeholder="Realm ID" required />
+  </div>
+</div>
+<div class="form-group">
+  <label for="deposit_to_account_name" class="col-sm-4 control-label">Default Undeposited Funds Account</label>
+  <div class="col-sm-8">
+    <input type="text" ng-model="quickbooksAccount.deposit_to_account_name" class="form-control" id="deposit_to_account_name" placeholder="Default Undeposited Funds Account" />
+  </div>
+</div>
+<div class="form-group" ng-class="{ 'has-error': quickbooksAccount.account_name.$invalid && quickbooksAccount.account_name.$dirty }">
+  <label for="account_name" class="col-sm-4 control-label">Quickbooks Income Account Name for The Items</label>
+  <div class="col-sm-8">
+    <input type="text" ng-model="quickbooksAccount.account_name" class="form-control" id="account_name" placeholder="Quickbooks Income Account Name for the items" required />
+  </div>
+</div>
+<div class="form-group">
+  <label for="use_web_orders_user" class="col-sm-4 control-label">Use "Web Orders" User?</label>
+  <div class="col-sm-8">
+    <input type="checkbox" ng-model="quickbooksAccount.use_web_orders_user" id="use_web_orders_user" title="Check to use &quot;Web Orders&quot; User as customer name for all sales receipts" />
+  </div>
+</div>
+<div class="form-group">
+  <label for="payment_method_map" class="col-sm-4 control-label">Payment Method Map</label>
+  <div class="col-sm-8">
+    <textarea ng-model="quickbooksAccount.payment_method_map" class="form-control" id="payment_method_map" placeholder="e.g. [{&quot;Cash&quot;: &quot;Cash&quot;, &quot;Visa&quot;: &quot;Visa&quot;}]" rows="4" />
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-sm-offset-2 col-sm-5">
+    <input type="submit" class="btn btn-primary" value="Save" ng-disabled="saveDisabled" />
+    <a class="btn btn-primary" ng-click="cancel()">Cancel</a>
+  </div>
+</div>

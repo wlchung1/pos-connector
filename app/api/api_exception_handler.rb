@@ -15,12 +15,7 @@ module POSConnector
           error_response(message: 'Record Not Found', status: 404)
         end
 
-        rescue_from Grape::Exceptions::ValidationErrors do |exception|
-          puts exception.message
-          error_response(message: exception.message, status: 400)
-        end
-
-        rescue_from POSConnector::Exceptions::ValidationError do |exception|
+        rescue_from Grape::Exceptions::ValidationErrors, POSConnector::Exceptions::ValidationError, ActiveRecord::RecordInvalid do |exception|
           puts exception.message
           error_response(message: exception.message, status: 400)
         end

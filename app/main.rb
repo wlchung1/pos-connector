@@ -1,3 +1,4 @@
+require 'rack'
 #require 'rack/cors'
 
 require_relative 'api/api'
@@ -6,7 +7,7 @@ module POSConnector
   class Main
     def initialize
       @index = '/index.html'
-      @rack_static = ::Rack::Static.new(
+      @rack_static = Rack::Static.new(
         lambda { [404, {}, []] },
         root: File.expand_path('../../public', __FILE__),
         urls: ['/']
@@ -22,6 +23,8 @@ module POSConnector
         #    resource '*', headers: :any, methods: :get
         #  end
         #end
+
+        use Rack::Session::Pool
 
         run POSConnector::Main.new
       end.to_app

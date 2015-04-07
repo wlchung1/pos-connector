@@ -1,7 +1,7 @@
 require 'active_record'
 
 class CreateVendAccounts < ActiveRecord::Migration
-  def self.up
+  def up
     create_table(:vend_accounts) do |table|
       table.column :site_id, :string
       table.column :username, :string
@@ -10,7 +10,7 @@ class CreateVendAccounts < ActiveRecord::Migration
     end
   end
  
-  def self.down
+  def down
     drop_table :vend_accounts
   end
 end

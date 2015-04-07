@@ -8,7 +8,7 @@ module POSConnector
       resource 'vend-accounts' do
         desc 'Returns vend account.'
         get ':id' do
-          vend_account = POSConnector::Models::VendAccount.find(params[:id])
+          vend_account = VendAccount.find(params[:id])
           vend_account.password = ''
           vend_account
         end
@@ -22,26 +22,26 @@ module POSConnector
           optional :password, type: String
         end
         put ':id' do
-          vendAccount = POSConnector::Models::VendAccount.find(params[:id])
+          vend_account = VendAccount.find(params[:id])
 
-          vendAccount.site_id = params[:site_id]
-          vendAccount.username = params[:username]
+          vend_account.site_id = params[:site_id]
+          vend_account.username = params[:username]
           if params[:last_poll_orders_datetime].to_s == ''
-            vendAccount.last_poll_orders_datetime = nil
+            vend_account.last_poll_orders_datetime = nil
           else
             begin
-              vendAccount.last_poll_orders_datetime = DateTime.parse(params[:last_poll_orders_datetime])
+              vend_account.last_poll_orders_datetime = DateTime.parse(params[:last_poll_orders_datetime])
             rescue ArgumentError => exception
               puts exception.class.name, exception.message
               raise POSConnector::Exceptions::ValidationError, "Invalid Date Format - #{params[:last_poll_orders_datetime]}"
             end
           end
           if params[:password].to_s != ''
-            vendAccount.password = params[:password]
+            vend_account.password = params[:password]
           end
-          vendAccount.save!()
+          vend_account.save!
 
-          vendAccount
+          vend_account
         end
       end
     end

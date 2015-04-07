@@ -16,10 +16,11 @@ module POSConnector
       format :json
       prefix :api
 
-      mount POSConnector::API::JobCreationAPI
-      mount POSConnector::API::JobsAPI
-      mount POSConnector::API::OrdersAPI
-      mount POSConnector::API::VendAccountsAPI
+      mount JobsAPI
+      mount OrdersAPI
+      mount QuickbooksAccountsAPI
+      mount QuickbooksAuthorizationAPI
+      mount VendAccountsAPI
     end
   end
 end

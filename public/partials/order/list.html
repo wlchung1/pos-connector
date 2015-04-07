@@ -1,11 +1,14 @@
 <div class="container">
   <h1>Orders</h1>
   <p>
-    <a class="btn btn-primary" ng-click="pollOrders()" ng-disabled="pollOrdersDisabled">Poll Orders</a>
+    <a class="btn btn-primary" ng-click="pollOrdersFromVend()" ng-disabled="pollOrdersFromVendDisabled">Poll Orders from Vend</a>
+    <a class="btn btn-primary" ng-click="sendOrdersToQuickbooks()" ng-disabled="sendOrdersToQuickbooksDisabled">Send Orders to Quickbooks</a>
     <a class="btn btn-primary" ng-click="refresh()" ng-disabled="refreshDisabled">Refresh</a>
   </p>
   <table class="table table-striped">
     <tr>
+      <th></th>
+      <th>ID</th>
       <th>Source</th>
       <th>Order Number</th>
       <th>Last Updated Date and Time</th>
@@ -13,11 +16,13 @@
       <th></th>
     </tr>
     <tr ng-repeat="order in orders">
+      <td><input type="checkbox" value="{{order.id}}" ng-checked="selectedOrderIds.indexOf(order.id) > -1" ng-click="toggleSelectedOrder(order.id)" /></td>
+      <td>{{order.id}}</td>
       <td>{{order.source}}</td>
       <td>{{order.order_number}}</td>
       <td>{{order.last_updated_datetime}}</td>
       <td>{{order.quickbooks_sync_status}}</td>
-      <td><a class="btn btn-primary" href="/orders/{{order.id}}/view">View</a></td>
+      <td><a class="btn btn-primary" href="/orders/{{order.id}}">View</a></td>
     </tr>
   </table>
 </div>

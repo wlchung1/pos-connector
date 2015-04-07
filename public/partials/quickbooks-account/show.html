@@ -1,0 +1,37 @@
+<div class="container">
+  <h1>Quickbooks Account</h1>
+  <p><a class="btn btn-primary" ng-click="connect()" ng-disabled="connectToQuickbooksDisabled">Connect to Quickbooks</a></p>
+  <table class="table table-striped">
+    <tr>
+      <th nowrap>Token</td>
+      <td>{{quickbooksAccount.token}}</td>
+    </tr>
+    <tr>
+      <th nowrap>Secret</td>
+      <td>{{quickbooksAccount.secret}}</td>
+    </tr>
+    <tr>
+      <th nowrap>Realm ID</td>
+      <td>{{quickbooksAccount.realm_id}}</td>
+    </tr>
+    <tr>
+      <th nowrap>Default Undeposited Funds Account</td>
+      <td>{{quickbooksAccount.deposit_to_account_name}}</td>
+    </tr>
+    <tr>
+      <th nowrap>Quickbooks Income Account Name for the items</td>
+      <td>{{quickbooksAccount.account_name}}</td>
+    </tr>
+    <tr>
+      <th nowrap>Use "Web Orders" User?</td>
+      <td>{{quickbooksAccount.use_web_orders_user? "Yes" : "No"}}</td>
+    </tr>
+    <tr>
+      <th nowrap>Payment Method Map</td>
+      <td>{{quickbooksAccount.payment_method_map}}</td>
+    </tr>
+  </table>
+  <div>
+    <a class="btn btn-primary" ng-click="edit()">Edit</a>
+  </div>
+</div>

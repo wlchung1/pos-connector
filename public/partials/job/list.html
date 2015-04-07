@@ -5,20 +5,24 @@
   </p>
   <table class="table table-striped">
     <tr>
+      <th>ID</th>
       <th>Flow Type</th>
+      <th>Parameters</th>
       <th>Status</th>
       <th>Started At</th>
       <th>Ended At</th>
-      <th>Description</th>
       <th>Error Message</th>
+      <th></th>
     </tr>
     <tr ng-repeat="job in jobs">
+      <td>{{job.id}}</td>
       <td>{{job.flow_type}}</td>
+      <td>{{job.parameters}}</td>
       <td>{{job.status}}</td>
       <td>{{job.start_datetime}}</td>
       <td>{{job.end_datetime}}</td>
-      <td>{{job.description}}</td>
       <td>{{job.error_message}}</td>
+      <td><a class="btn btn-primary" href="/jobs/{{job.id}}/edit">Edit</a></td>
     </tr>
   </table>
 </div>

@@ -8,12 +8,12 @@ module POSConnector
       resource 'orders' do
         desc 'Returns order.'
         get ':id' do
-          POSConnector::Models::Order.find(params[:id])
+          Order.find params[:id]
         end
 
         desc 'Returns all orders.'
         get do
-          POSConnector::Models::Order.all
+          Order.all
         end
       end
     end

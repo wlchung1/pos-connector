@@ -1,13 +1,14 @@
-# Used bundler to require libraries originally
-#require File.expand_path('../boot', __FILE__)
+require_relative 'boot'
 
 require 'yaml'
 require 'active_record'
 require 'logger'
+require 'quickbooks-ruby'
 
 # Establish database connection
 db_config = YAML.load_file(File.expand_path('../database.yml', __FILE__))[ENV['APP_ENV']]
 ActiveRecord::Base.logger = Logger.new STDOUT
 ActiveRecord::Base.establish_connection(db_config)
 
-require_relative '../app/main'
+# Configure Quickbooks' Oauth settings
+require_relative 'quickbooks'

@@ -1,3 +1,4 @@
-require 'bundler'
+require 'rubygems'
+require 'bundler/setup'
 
-Bundler.require :default, ENV['APP_ENV']
+Bundler.setup :default, ENV['APP_ENV']

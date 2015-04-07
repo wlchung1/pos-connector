@@ -1,7 +1,7 @@
 require 'active_record'
 
 class CreateOrders < ActiveRecord::Migration
-  def self.up
+  def up
     create_table(:orders) do |table|
       table.column :message, :text, :null => false
       table.column :source, :string, :null => false
@@ -14,7 +14,7 @@ class CreateOrders < ActiveRecord::Migration
     end
   end
 
-  def self.down
+  def down
     drop_table :orders
   end
 end

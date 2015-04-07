@@ -25,7 +25,7 @@ namespace :db do
  
   desc 'Seeds the database with its default values.'
   task :seed => :establish_connection do
-    require File.expand_path('../db/seeds', __FILE__)
+    require_relative 'db/seeds'
   end
 
   desc 'Setups the database from scratch.'
@@ -46,5 +46,13 @@ namespace :db do
   desc 'Retrieves the current schema version number.'
   task :version => :establish_connection do
     puts "Current version: #{ActiveRecord::Migrator.current_version}"
+  end
+ 
+  desc 'Patches the flow types of jobs for single table inheritance.'
+  task :patch_job_flow_type => :establish_connection do
+    require_relative 'app/models/job'
+    
+    Job.where("flow_type = 'ReceiveOrdersFromVend'").update_all(:flow_type => 'ReceiveOrdersFromVendJob')
+    Job.where("flow_type = 'SendOrdersToQuickbooks'").update_all(:flow_type => 'SendOrdersToQuickbooksJob')
   end
 end

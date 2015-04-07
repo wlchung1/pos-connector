@@ -1,7 +1,7 @@
 require 'active_record'
 
 class CreateJobs < ActiveRecord::Migration
-  def self.up
+  def up
     create_table(:jobs) do |table|
       table.column :flow_type, :string, :null => false
       table.column :status, :string, :null => false
@@ -12,7 +12,7 @@ class CreateJobs < ActiveRecord::Migration
     end
   end
 
-  def self.down
+  def down
     drop_table :jobs
   end
 end
