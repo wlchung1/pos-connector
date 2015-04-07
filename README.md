@@ -37,6 +37,14 @@ The POS Connector website will be up at http://localhost:9292/
 5. The time required for the job depends on how many orders to be sent to Quickbooks.  Usually, after 30 seconds, the job will be completed and the status will become "Succeeded".
 6. Click "Orders" in the top menu and the Quickbooks Sync Statuses of the sent orders should become "Succeeded".
 
+## Rerun a job
+1. Click "Jobs" in the top menu.
+2. Click "Edit" for the job that you want to rerun.
+3. Modify the message in the "Context" field to fix any error in the last run.
+4. Check the "Rerun" checkbox.
+5. Click "Save".
+6. The job will then be rerun by the job scheduler.
+
 # To-Do
 1. Only jobs_api.rb currently has test covered.  Add RSpec tests for the other classes/modules.
 2. Database is not really suitable for implementing background jobs.  Use messaging system such as RabbitMQ or Resque instead.
