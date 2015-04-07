@@ -48,3 +48,4 @@ The POS Connector website will be up at http://localhost:9292/
 # To-Do
 1. Only jobs_api.rb currently has test covered.  Add RSpec tests for the other classes/modules.
 2. Database is not really suitable for implementing background jobs.  Use messaging system such as RabbitMQ or Resque instead.
+3. Use multiple table inheritance (MTI) instead of single table inheritance for job.  MTI allows us to define different fields for different jobs.
