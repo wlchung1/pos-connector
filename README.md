@@ -1,3 +1,6 @@
+# Technologies Used
+Angular JS, Bootstrap, Ruby, Grape
+
 # Setup
 Run "gem install bundler"
 
@@ -46,6 +49,6 @@ The POS Connector website will be up at http://localhost:9292/
 6. The job will then be rerun by the job scheduler.
 
 # To-Do
-1. Only jobs_api.rb currently has test covered.  Add RSpec tests for the other classes/modules.
+1. Increase RSpec test coverage.
 2. Database is not really suitable for implementing background jobs.  Use messaging system such as RabbitMQ or Resque instead.
 3. Use multiple table inheritance (MTI) instead of single table inheritance for job.  MTI allows us to define different fields for different jobs.
